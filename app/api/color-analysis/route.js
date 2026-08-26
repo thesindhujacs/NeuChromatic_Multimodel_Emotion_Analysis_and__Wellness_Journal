@@ -21,12 +21,15 @@ export async function POST(request) {
       ],
       model: "openai/gpt-oss-120b",
       temperature: 0.7,
-      max_tokens: 400,
+      max_tokens: 800,
     });
 
     const raw = completion.choices[0]?.message?.content || "{}";
     const jsonMatch = raw.match(/\{[\s\S]*\}/);
     const result = jsonMatch ? JSON.parse(jsonMatch[0]) : {};
+
+    console.log("COLOR ANALYSIS RAW:", raw);
+    console.log("COLOR ANALYSIS RESULT:", result);
 
     return Response.json({ success: true, data: result });
   } catch (error) {
