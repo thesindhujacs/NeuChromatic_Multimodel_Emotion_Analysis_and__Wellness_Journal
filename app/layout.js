@@ -4,6 +4,9 @@ export const metadata = {
   title: "NeuChromatic",
   description: "Understand your emotions through art, color and words",
   manifest: "/manifest.json",
+};
+
+export const viewport = {
   themeColor: "#7C3AED",
 };
 export default function RootLayout({ children }) {

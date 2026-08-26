@@ -27,7 +27,7 @@ export async function POST(request) {
             content: "Generate personalized wellness recommendations. Return ONLY this JSON with no other text:\n{\n  \"summary\": \"4-5 sentences specifically about feeling " + emotion + " at intensity " + intensity + "/10 and how the image reaction " + (imageEmotion ? "(" + imageEmotion + ")" : "") + " drawing " + (drawingEmotion ? "(" + drawingEmotion + ")" : "") + " and color " + (colorEmotion ? "(" + colorEmotion + ")" : "") + " all connect to reveal an emotional pattern\",\n  \"phrase\": \"one short powerful healing phrase for someone feeling " + emotion + "\",\n  \"quote\": \"one calming quote related to " + emotion + " with author name\",\n  \"affirmations\": [\"affirmation 1 specifically for " + emotion + "\", \"affirmation 2 for intensity " + intensity + "/10\", \"affirmation 3 for healing\"],\n  \"videos\": [{\"title\": \"youtube search for " + emotion + " relief meditation\", \"reason\": \"helps with " + emotion + "\"}, {\"title\": \"youtube search for emotional healing " + (keywords || emotion) + "\", \"reason\": \"addresses their keywords\"}, {\"title\": \"calming nature sounds for " + emotion + "\", \"reason\": \"soothes the nervous system\"}]\n}"
           }
         ],
-        model: "llama-3.3-70b-versatile",
+        model: "openai/gpt-oss-120b",
         temperature: 0.7,
         max_tokens: 800,
       });
@@ -71,7 +71,7 @@ export async function POST(request) {
             }))) + "\n\nWrite these exact 7 sections. Each section heading on its own line followed by the content:\n\n1. CLINICAL SUMMARY\n[Overall emotional pattern and what it suggests]\n\n2. MULTIMODAL ANALYSIS\n[What journal plus image plus drawing plus color reveals together]\n\n3. EMOTIONAL TRAJECTORY\n[How emotions changed across sessions]\n\n4. KEY OBSERVATIONS\n[3-4 specific clinical observations]\n\n5. RISK INDICATORS\n[Patterns that warrant gentle attention, be measured not alarmist]\n\n6. RECOMMENDATIONS\n[Specific therapeutic approaches for this emotional profile]\n\n7. STRENGTHS OBSERVED\n[Positive patterns and resilience indicators]\n\nBe specific. Reference their actual emotions and session data. Write in compassionate clinical language."
           }
         ],
-        model: "llama-3.3-70b-versatile",
+        model: "openai/gpt-oss-120b",
         temperature: 0.6,
         max_tokens: 1500,
       });
@@ -104,7 +104,7 @@ export async function POST(request) {
         ...messages,
         { role: "user", content: userInstruction }
       ],
-      model: "llama-3.3-70b-versatile",
+      model: "openai/gpt-oss-120b",
       temperature: 0.85,
       max_tokens: 300,
     });

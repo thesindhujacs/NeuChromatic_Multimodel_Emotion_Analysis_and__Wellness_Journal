@@ -19,7 +19,7 @@ export async function POST(request) {
         { role: "system", content: "You are an art therapist and psychologist. Analyze drawings and color choices for emotional meaning. Return only valid JSON." },
         { role: "user", content: prompt }
       ],
-      model: "llama-3.3-70b-versatile",
+      model: "openai/gpt-oss-120b",
       temperature: 0.7,
       max_tokens: 400,
     });
